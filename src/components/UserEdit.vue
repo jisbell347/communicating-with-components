@@ -2,15 +2,18 @@
     <div class="component">
         <h3>You may edit the User here</h3>
         <p>Edit me!</p>
-        <button>Edit Age</button>
+        <p>User Age: {{ userAge }}</p>
+        <button @click="editAge">Edit Age</button>
     </div>
 </template>
 
 <script>
 export default {
+    props: ['userAge'],
     methods: {
         editAge(){
-            this.age = 30;
+            this.userAge = 30;
+            this.$emit('ageWasEdited', this.userAge);
         }
     }
 }
